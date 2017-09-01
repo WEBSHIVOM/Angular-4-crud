@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Metadata Upload</h1>
+
+  <div class="row">
+    <p-growl [value]="msgs" [life]="2000"></p-growl>
+    <div class="col-md-6">
+
+      <form (ngSubmit)="saveMetadata($event)" #documentForm="ngForm">
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" pTooltip="Enter name" tooltipPosition="right" tooltipEvent="focus" [(ngModel)]="doc.Name" name="Name" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Description</label>
+          <input type="text" class="form-control" pTooltip="Enter Description" tooltipPosition="right" tooltipEvent="focus" [(ngModel)]="doc.Description" name="Description" required>
+        </div>
+           <div class="form-group">
+        <p-dropdown name="author" [options]="author" [(ngModel)]="doc.selectedauthor" [style]="{'width':'150px'}"></p-dropdown>
+           </div>
+
+           <div class="form-group">
+          <label for="name">CreatedOn</label>
+          <p-calendar [(ngModel)]="doc.CreatedOn"[showIcon]="true" [hourFormat]="12" dateFormat="yy-mm-dd" name="CreatedOn"  ></p-calendar>
+
+        </div>
+
+        <div class="form-group">
+          <label for="name">PublishedOn</label>
+           <p-calendar [(ngModel)]="doc.PublishedOn" [showIcon]="true"  dateFormat="yy-mm-dd" [hourFormat]="12" name="PublishedOn" ></p-calendar>
+        </div>
+        <div class="form-group">
+          <label for="name">UpdatedOn</label>
+          <p-calendar [(ngModel)]="doc.UpdatedOn" [showIcon]="true" dateFormat="yy-mm-dd" [hourFormat]="12" name="UpdatedOn" ></p-calendar>
+        </div>
+<div class="form-group">
+  <label for="name">File Upload</label>
+           <input type="file" file-input="files" class="form-control" [(ngModel)]="doc.Docx" name="Docx" >
+</div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!documentForm.form.valid">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,22 @@
+
+<div>
+
+
+<p-growl [value]="msgs"></p-growl>
+
+    
+<p-fileUpload name="demo[]" url="http://10.120.57.122:8090/api/user/FileUpload"  method="post" (onUpload)="onUpload($event)" 
+        multiple="multiple"  maxFileSize="1000000">
+    <ng-template pTemplate type="content">
+        <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes
+                <p-progressBar  [value]="value"></p-progressBar>
+            </li>
+
+
+        </ul>
+    </ng-template>
+
+</p-fileUpload>
+
+</div>

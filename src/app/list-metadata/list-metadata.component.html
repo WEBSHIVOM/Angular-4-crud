@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Metadata List
+  </h1>
+
+  <p-dataTable #dt [value]="metadatalist" exportFilename="UserData" [editable]="true"  [rows]="18" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-header>
+      <div class="ui-helper-clearfix">
+        <button type="button" pButton iconPos="left" icon="fa fa-file-text" label="Export to CSV" (click)="dt.exportCSV()" style="float:left"></button>
+      </div>
+    </p-header>
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [editable]="false"></p-column>
+   <!-- <p-column field="FirstName" header="First Name"></p-column>
+    <p-column field="LastName" header="Last Name"></p-column>
+    <p-column field="UserName" header="User Name"></p-column>
+    <p-column field="Email" header="Email"></p-column> -->
+
+  </p-dataTable>
+</div>

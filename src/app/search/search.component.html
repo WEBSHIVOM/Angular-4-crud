@@ -1,0 +1,28 @@
+  <div id="page-content-wrapper" class="dhashbord-page">    
+  <h1>Search User</h1>
+    <!-- Page Content -->
+        <div class="content-wrapper-inner">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="search-page-heading" >Search results - {{totalCount}} found</h3>
+
+                    <div class="custom-table">
+
+                        <div class="table-responsive">
+                            <p-dataTable #dt [value]="userNew" exportFilename="UserData" [editable]="true" (onEditComplete)="handleEditCell($event)"
+                                [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]" tableStyleClass="table table-condensed table-striped table-bordered table-hover no-margin">
+                                <p-header>
+                                    <div class="ui-helper-clearfix">
+                                        <button type="button" pButton iconPos="left" icon="fa fa-file-text" label="Export to CSV" (click)="dt.exportCSV()" style="float:left"></button>
+                                    </div>
+                                </p-header>
+                                <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [editable]="true" [sortable]="true"></p-column>
+
+                            </p-dataTable>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+</div>

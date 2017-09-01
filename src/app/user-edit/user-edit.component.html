@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Edit User</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="updateUser(user.UserName)" #userForm="ngForm">
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input type="text" class="form-control" [(ngModel)]="user.FirstName" name="firstname" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input type="text" class="form-control" [(ngModel)]="user.LastName" name="lastname" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Username</label>
+          <input type="text" class="form-control" [(ngModel)]="user.UserName" name="username" readonly>
+        </div>
+                <div class="form-group">
+          <label for="name">Email</label>
+          <input type="text" class="form-control" [(ngModel)]="user.Email" name="email" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Update</button>
+          <a [routerLink]="['/user-details', user.Id]" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

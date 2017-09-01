@@ -1,0 +1,17 @@
+ <div id="page-content-wrapper" class="dhashbord-page">
+  <h1>Users List
+  </h1>
+  <p-dataTable #dt [value]="users" exportFilename="UserData" [editable]="true" (onEditComplete)="handleEditCell($event)" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]">
+    <p-header>
+      <div class="ui-helper-clearfix">
+        <button type="button" pButton iconPos="left" icon="fa fa-file-text" label="Export to CSV" (click)="dt.exportCSV()" style="float:left"></button>
+      </div>
+    </p-header>
+   <!-- <p-column *ngFor="let col of cols" *ngIf="col.header == User Name" [field]="col.field" [header]="col.header"  [editable]="true"></p-column> -->
+    <p-column field="FirstName" header="First Name" [editable]="true"></p-column>
+    <p-column field="LastName" header="Last Name" [editable]="true"></p-column>
+    <p-column field="UserName" header="User Name"></p-column>
+    <p-column field="Email" header="Email" [editable]="true"></p-column> 
+    <!--<p-column field="Show Details" header="Action"></p-column> -->
+  </p-dataTable>
+</div>
